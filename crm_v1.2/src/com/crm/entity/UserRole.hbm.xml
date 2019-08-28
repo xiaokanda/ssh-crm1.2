@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.crm.entity.UserRole" table="sys_user_role" schema="" catalog="crm">
+        <composite-id mapped="true" class="com.crm.entity.UserRole">
+            <key-property name="roleId" column="role_id"/>
+            <key-property name="userId" column="user_id"/>
+        </composite-id>
+
+        <many-to-one name="user" class="com.crm.entity.User" insert="false" update="false" column="user_id"/>
+
+        <many-to-one name="role" class="com.crm.entity.Role" insert="false" update="false" column="role_id"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.crm.entity.Role" table="sys_role" schema="" catalog="crm">
+        <id name="roleId" column="role_id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="roleName" column="role_name"/>
+        <property name="roleMemo" column="role_memo"/>
+
+        <set name="userRoles" inverse="true">
+            <key column="role_id"></key>
+            <one-to-many class="com.crm.entity.UserRole"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
